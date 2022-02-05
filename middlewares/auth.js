@@ -43,3 +43,19 @@ exports.protect = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.authorize =
+  (...roles) =>
+  (req, res, next) => {
+    const role = req.user.role;
+    if (!roles.includes(role)) {
+      return next(
+        new ErrorResponse(
+          403,
+          `This resource cannot be accessed by user role: ${role}`
+        )
+      );
+    }
+
+    next();
+  };

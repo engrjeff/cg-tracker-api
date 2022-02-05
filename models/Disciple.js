@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const DiscipleSchema = new mongoose.Schema(
   {
-    leaderId: {
+    leader: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: [true, 'A disciple should be added by a leader.'],

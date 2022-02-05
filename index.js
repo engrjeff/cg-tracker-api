@@ -27,6 +27,8 @@ app.get('/api/v1/health-check', (req, res) => res.send('CG Tracker API...'));
 app.use('/api/v1/auth', require('./routes/auth'));
 app.use('/api/v1/users', require('./routes/user'));
 app.use('/api/v1/disciples', require('./routes/disciples'));
+app.use('/api/v1/series', require('./routes/series'));
+app.use('/api/v1/lessons', require('./routes/lesson'));
 
 // error handler
 app.use(errorHandler);
